@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFwalks.API", "AFwalks.API\AFwalks.API.csproj", "{B0D1C93A-3A7E-485E-90CD-9A9E92A2C12C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0D1C93A-3A7E-485E-90CD-9A9E92A2C12C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0D1C93A-3A7E-485E-90CD-9A9E92A2C12C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0D1C93A-3A7E-485E-90CD-9A9E92A2C12C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0D1C93A-3A7E-485E-90CD-9A9E92A2C12C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7A29862-812A-4DC6-871F-5802B18C978D}
+	EndGlobalSection
+EndGlobal

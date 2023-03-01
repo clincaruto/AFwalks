@@ -1,4 +1,5 @@
 using AFwalks.API.Data;
+using AFwalks.API.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,10 @@ builder.Services.AddDbContext<AFwalksDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("AFwalksConnection"));
 });
+
+builder.Services.AddScoped<IRegionRepository, RegionRepository>();
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
 

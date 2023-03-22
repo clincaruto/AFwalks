@@ -122,7 +122,7 @@ namespace AFwalks.API.Controllers
 
            return CreatedAtAction(nameof(GetRegionAsync), new { id = regionDTO.Id }, regionDTO);
         }
-
+           
         [HttpDelete]
         [Route("{id:guid}")]
         //[ActionName("GetAllRegionsAsync")]

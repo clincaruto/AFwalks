@@ -95,11 +95,11 @@ namespace AFwalks.API.Controllers
         public async Task<IActionResult> AddRegionAsync(AddRegionRequestVM addRegionRequestVM)
         {
             // Validate the Request
-            var Validate = ValidateAddRegionAsync(addRegionRequestVM);
-            if (!Validate)
-            {
-                return BadRequest(ModelState);
-            }
+            //var Validate = ValidateAddRegionAsync(addRegionRequestVM);
+            //if (!Validate)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
             // Request(DTO) to Domain model
             var region = new Region()
@@ -168,11 +168,11 @@ namespace AFwalks.API.Controllers
         public async Task<IActionResult> UpdateRegionAsync([FromRoute] Guid id,[FromBody] UpdateRegionRequesrVM updateRegionRequesrVM)
         {
             // Validate the Request
-            var Validate = ValidateUpdateRegionAsync(updateRegionRequesrVM);
-            if (!Validate)
-            {
-                return BadRequest(ModelState);
-            }
+            //var Validate = ValidateUpdateRegionAsync(updateRegionRequesrVM);
+            //if (!Validate)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
 
             // Convert DTO to Domain model

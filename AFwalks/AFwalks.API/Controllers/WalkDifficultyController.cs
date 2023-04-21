@@ -56,12 +56,12 @@ namespace AFwalks.API.Controllers
         public async Task<IActionResult> AddWalkDifficultyAsync(AddWalkDifficultyRequestVM addWalkDifficultyRequestVM)
         {
             // Validate the Request
-            var Validate = ValidateAddWalkDifficultyAsync(addWalkDifficultyRequestVM);
+            //var Validate = ValidateAddWalkDifficultyAsync(addWalkDifficultyRequestVM);
 
-            if (!Validate)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!Validate)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
             // Convert DTO to Domain Object
             var walkDiff = new WalkDifficulty()
@@ -90,12 +90,12 @@ namespace AFwalks.API.Controllers
         public async Task<IActionResult> UpdateWalkDifficultyAsync(Guid id, UpdateWalkDifficultyRequestVM updateWalkDifficultyRequestVM)
         {
             // Validate the Request
-            var Validate = ValidateUpdateWalkDifficultyAsync(updateWalkDifficultyRequestVM);
+            //var Validate = ValidateUpdateWalkDifficultyAsync(updateWalkDifficultyRequestVM);
 
-            if (!Validate)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!Validate)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
             // Convert DTO to domain model
             var walkDiff = new WalkDifficulty()

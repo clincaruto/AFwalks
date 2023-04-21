@@ -170,24 +170,24 @@ namespace AFwalks.API.Controllers
 
         private async Task<bool> ValidateAddWalkAsync(AddWalkRequestVM addWalkRequestVM)
         {
-            if (addWalkRequestVM == null)
-            {
-                ModelState.AddModelError(nameof(addWalkRequestVM),
-                    $"{nameof(addWalkRequestVM)} cannot be empty");
-                return false;
-            }
+            //if (addWalkRequestVM == null)
+            //{
+            //    ModelState.AddModelError(nameof(addWalkRequestVM),
+            //        $"{nameof(addWalkRequestVM)} cannot be empty");
+            //    return false;
+            //}
 
-            if (string.IsNullOrWhiteSpace(addWalkRequestVM.Name))
-            {
-                ModelState.AddModelError(nameof(addWalkRequestVM.Name),
-                    $"{nameof(addWalkRequestVM.Name)} is required");
-            }
+            //if (string.IsNullOrWhiteSpace(addWalkRequestVM.Name))
+            //{
+            //    ModelState.AddModelError(nameof(addWalkRequestVM.Name),
+            //        $"{nameof(addWalkRequestVM.Name)} is required");
+            //}
 
-            if (addWalkRequestVM.Length <= 0)
-            {
-                ModelState.AddModelError(nameof(addWalkRequestVM.Length),
-                    $"{nameof(addWalkRequestVM.Length)} should be greater than zero");
-            }
+            //if (addWalkRequestVM.Length <= 0)
+            //{
+            //    ModelState.AddModelError(nameof(addWalkRequestVM.Length),
+            //        $"{nameof(addWalkRequestVM.Length)} should be greater than zero");
+            //}
 
             var region = await regionRepository.GetAsync(addWalkRequestVM.RegionId);
             if (region == null)

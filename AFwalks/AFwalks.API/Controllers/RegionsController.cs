@@ -2,6 +2,7 @@
 using AFwalks.API.Models.DTO;
 using AFwalks.API.Repositories;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AFwalks.API.Controllers
@@ -44,9 +45,11 @@ namespace AFwalks.API.Controllers
         //            Population = 500000
         //        },
         //    };
-            
+
         //    return Ok(regions);
         //}
+
+        [Authorize]
         public async Task<IActionResult> GetAllRegionsAsync() 
         {
             var regions = await regionRepository.GetAllAsync();
@@ -92,7 +95,8 @@ namespace AFwalks.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddRegionAsync(AddRegionRequestVM addRegionRequestVM)
+		[Authorize]
+		public async Task<IActionResult> AddRegionAsync(AddRegionRequestVM addRegionRequestVM)
         {
             // Validate the Request
             //var Validate = ValidateAddRegionAsync(addRegionRequestVM);
@@ -132,8 +136,9 @@ namespace AFwalks.API.Controllers
            
         [HttpDelete]
         [Route("{id:guid}")]
-        //[ActionName("GetAllRegionsAsync")]
-        public async Task<IActionResult> DeleteRegionAsync(Guid id)
+		[Authorize]
+		//[ActionName("GetAllRegionsAsync")]
+		public async Task<IActionResult> DeleteRegionAsync(Guid id)
         {
             // Get region from database
             var region =  await regionRepository.DeleteAsync(id);
@@ -164,8 +169,9 @@ namespace AFwalks.API.Controllers
 
         [HttpPut]
         [Route("{id:guid}")]
+		[Authorize]
 
-        public async Task<IActionResult> UpdateRegionAsync([FromRoute] Guid id,[FromBody] UpdateRegionRequesrVM updateRegionRequesrVM)
+		public async Task<IActionResult> UpdateRegionAsync([FromRoute] Guid id,[FromBody] UpdateRegionRequesrVM updateRegionRequesrVM)
         {
             // Validate the Request
             //var Validate = ValidateUpdateRegionAsync(updateRegionRequesrVM);

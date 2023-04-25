@@ -170,24 +170,24 @@ namespace AFwalks.API.Controllers
 
         private async Task<bool> ValidateAddWalkAsync(AddWalkRequestVM addWalkRequestVM)
         {
-            //if (addWalkRequestVM == null)
-            //{
-            //    ModelState.AddModelError(nameof(addWalkRequestVM),
-            //        $"{nameof(addWalkRequestVM)} cannot be empty");
-            //    return false;
-            //}
+            if (addWalkRequestVM == null)
+            {
+                ModelState.AddModelError(nameof(addWalkRequestVM),
+                    $"{nameof(addWalkRequestVM)} cannot be empty");
+                return false;
+            }
 
-            //if (string.IsNullOrWhiteSpace(addWalkRequestVM.Name))
-            //{
-            //    ModelState.AddModelError(nameof(addWalkRequestVM.Name),
-            //        $"{nameof(addWalkRequestVM.Name)} is required");
-            //}
+            if (string.IsNullOrWhiteSpace(addWalkRequestVM.Name))
+            {
+                ModelState.AddModelError(nameof(addWalkRequestVM.Name),
+                    $"{nameof(addWalkRequestVM.Name)} is required");
+            }
 
-            //if (addWalkRequestVM.Length <= 0)
-            //{
-            //    ModelState.AddModelError(nameof(addWalkRequestVM.Length),
-            //        $"{nameof(addWalkRequestVM.Length)} should be greater than zero");
-            //}
+            if (addWalkRequestVM.Length <= 0)
+            {
+                ModelState.AddModelError(nameof(addWalkRequestVM.Length),
+                    $"{nameof(addWalkRequestVM.Length)} should be greater than zero");
+            }
 
             var region = await regionRepository.GetAsync(addWalkRequestVM.RegionId);
             if (region == null)
@@ -217,24 +217,24 @@ namespace AFwalks.API.Controllers
 
         private async Task<bool> ValidateUpdateWalkAsync(UpdateWalkRequestVM updateWalkRequestVM)
         {
-            if (updateWalkRequestVM == null)
-            {
-                ModelState.AddModelError(nameof(updateWalkRequestVM),
-                    $"{nameof(updateWalkRequestVM)} cannot be empty");
-                return false;
-            }
+            //if (updateWalkRequestVM == null)
+            //{
+            //    ModelState.AddModelError(nameof(updateWalkRequestVM),
+            //        $"{nameof(updateWalkRequestVM)} cannot be empty");
+            //    return false;
+            //}
 
-            if (string.IsNullOrWhiteSpace(updateWalkRequestVM.Name))
-            {
-                ModelState.AddModelError(nameof(updateWalkRequestVM.Name),
-                    $"{nameof(updateWalkRequestVM.Name)} is required");
-            }
+            //if (string.IsNullOrWhiteSpace(updateWalkRequestVM.Name))
+            //{
+            //    ModelState.AddModelError(nameof(updateWalkRequestVM.Name),
+            //        $"{nameof(updateWalkRequestVM.Name)} is required");
+            //}
 
-            if (updateWalkRequestVM.Length <= 0)
-            {
-                ModelState.AddModelError(nameof(updateWalkRequestVM.Length),
-                    $"{nameof(updateWalkRequestVM.Length)} should be greater than zero");
-            }
+            //if (updateWalkRequestVM.Length <= 0)
+            //{
+            //    ModelState.AddModelError(nameof(updateWalkRequestVM.Length),
+            //        $"{nameof(updateWalkRequestVM.Length)} should be greater than zero");
+            //}
 
             var region = await regionRepository.GetAsync(updateWalkRequestVM.RegionId);
             if (region == null)

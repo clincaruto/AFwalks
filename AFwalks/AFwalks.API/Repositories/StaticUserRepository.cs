@@ -14,7 +14,7 @@ namespace AFwalks.API.Repositories
 				Id = Guid.NewGuid(),
 				Username = "readonly@user.com",
 				Password = "Readonly@user",
-				Roles = new List<string> { "reader", "writer"}
+				Roles = new List<string> { "reader"}
 			},
 
 			new User()

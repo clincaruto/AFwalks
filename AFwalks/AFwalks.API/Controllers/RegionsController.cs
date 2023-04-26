@@ -49,7 +49,7 @@ namespace AFwalks.API.Controllers
         //    return Ok(regions);
         //}
 
-        [Authorize]
+        [Authorize(Roles = "reader")]
         public async Task<IActionResult> GetAllRegionsAsync() 
         {
             var regions = await regionRepository.GetAllAsync();
@@ -79,7 +79,8 @@ namespace AFwalks.API.Controllers
         [HttpGet]
         [Route("{id:guid}")]
         [ActionName("GetRegionAsync")]
-        public async Task<IActionResult> GetRegionAsync(Guid id)
+		[Authorize(Roles = "reader")]
+		public async Task<IActionResult> GetRegionAsync(Guid id)
         {
             var region = await regionRepository.GetAsync(id);
 
@@ -95,7 +96,7 @@ namespace AFwalks.API.Controllers
         }
 
         [HttpPost]
-		[Authorize]
+		[Authorize(Roles = "writer")]
 		public async Task<IActionResult> AddRegionAsync(AddRegionRequestVM addRegionRequestVM)
         {
             // Validate the Request
@@ -136,7 +137,7 @@ namespace AFwalks.API.Controllers
            
         [HttpDelete]
         [Route("{id:guid}")]
-		[Authorize]
+		[Authorize(Roles = "writer")]
 		//[ActionName("GetAllRegionsAsync")]
 		public async Task<IActionResult> DeleteRegionAsync(Guid id)
         {
@@ -169,7 +170,7 @@ namespace AFwalks.API.Controllers
 
         [HttpPut]
         [Route("{id:guid}")]
-		[Authorize]
+		[Authorize(Roles = "writer")]
 
 		public async Task<IActionResult> UpdateRegionAsync([FromRoute] Guid id,[FromBody] UpdateRegionRequesrVM updateRegionRequesrVM)
         {

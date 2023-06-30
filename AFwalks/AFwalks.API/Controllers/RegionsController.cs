@@ -54,7 +54,7 @@ namespace AFwalks.API.Controllers
         {
             var regions = await regionRepository.GetAllAsync();
 
-            // return DTO regions
+            
             //var regionsDTO = new List<Models.DTO.RegionVM>();
             //regions.ToList().ForEach(regionDOM =>
             //{

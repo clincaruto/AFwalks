@@ -1,6 +1,7 @@
 ﻿using AFwalks.API_7.Data;
 using AFwalks.API_7.Models.Domain;
 using AFwalks.API_7.Models.DTO;
+using AFwalks.API_7.Respositories.IRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +13,12 @@ namespace AFwalks.API_7.Controllers
     public class RegionsController : ControllerBase
     {
         private readonly AFwalks7DbContext dbContext;
+        private readonly IRegionRepository regionRepository;
 
-        public RegionsController(AFwalks7DbContext dbContext)
+        public RegionsController(AFwalks7DbContext dbContext, IRegionRepository regionRepository)
         {
             this.dbContext = dbContext;
+            this.regionRepository = regionRepository;
         }
 
         [HttpGet]
@@ -42,7 +45,8 @@ namespace AFwalks.API_7.Controllers
             //};
 
             // Get Data from Database - Domain models
-            var regions = await dbContext.Regions.ToListAsync();
+          //  var regions = await dbContext.Regions.ToListAsync();
+            var regions = await regionRepository.GetAllAsync();
 
             // Map domain models to DTOs
             var regionsDTO = new List<RegionDto>();
@@ -78,7 +82,7 @@ namespace AFwalks.API_7.Controllers
         [ActionName("GetByIdRegionAsync")]
         public async Task<IActionResult> GetByIdRegionAsync(Guid id)
         {
-            var regions = await dbContext.Regions.FirstOrDefaultAsync(x => x.Id == id);
+            var regions = await regionRepository.GetAsync(id);
 
             if (regions == null) 
             {
@@ -98,10 +102,11 @@ namespace AFwalks.API_7.Controllers
                 RegionImageUrl = addRegionRequestDto.RegionImageUrl,
 
             };
-            
+
             // Use Domain Model to create region
-            await dbContext.Regions.AddAsync(regionDomain);
-            await dbContext.SaveChangesAsync();
+            //await dbContext.Regions.AddAsync(regionDomain);
+            //await dbContext.SaveChangesAsync();
+            regionDomain= await regionRepository.CreateAsync(regionDomain);
 
             // Map or convert back to DTO
             var regionDTO = new RegionDto

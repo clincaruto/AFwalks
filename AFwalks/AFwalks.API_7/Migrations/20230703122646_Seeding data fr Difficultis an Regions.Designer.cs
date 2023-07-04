@@ -4,6 +4,7 @@ using AFwalks.API_7.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AFwalks.API_7.Migrations
 {
     [DbContext(typeof(AFwalks7DbContext))]
-    partial class AFwalks7DbContextModelSnapshot : ModelSnapshot
+    [Migration("20230703122646_Seeding data fr Difficultis an Regions")]
+    partial class SeedingdatafrDifficultisanRegions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

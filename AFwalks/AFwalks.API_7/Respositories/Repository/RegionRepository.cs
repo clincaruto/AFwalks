@@ -21,9 +21,17 @@ namespace AFwalks.API_7.Respositories.Repository
             return region;
         }
 
-        public Task<Region> DeleteAsync(Guid id)
+        public async Task<Region?> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var region = await GetAsync(id);
+            if (region == null)
+            {
+                return null;
+            }
+
+            context.Regions.Remove(region);
+            await context.SaveChangesAsync();
+            return region;
         }
 
         public async Task<IEnumerable<Region>> GetAllAsync()

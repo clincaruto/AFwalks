@@ -1,3 +1,4 @@
+using AFwalks.API_7.Configuration.MappingsProfile;
 using AFwalks.API_7.Data;
 using AFwalks.API_7.Respositories.IRepository;
 using AFwalks.API_7.Respositories.Repository;
@@ -18,6 +19,9 @@ builder.Services.AddDbContext<AFwalks7DbContext>(options =>
 });
 
 builder.Services.AddScoped<IRegionRepository, RegionRepository>();
+builder.Services.AddScoped<IWalkRepository, WalkRepository>();
+
+builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
 var app = builder.Build();
 

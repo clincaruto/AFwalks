@@ -31,7 +31,16 @@ namespace AFwalks.API.Controllers
 			{
 				// Generate a JWT Token
 				var token = await tokenHandler.CreateTokenAsync(user);
-				return Ok(token);
+
+				// this is if you want a body response to come before the token, you can comment it and just pass the token to the return parameter
+				var response = new LoginTokenResponseDto
+				{
+					JwtToken = token,
+				};
+
+				return Ok(response);
+
+				//return Ok(token);
 			}
 
 			return BadRequest("Username or Password is incorrect.");

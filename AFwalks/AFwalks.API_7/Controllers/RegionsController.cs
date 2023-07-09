@@ -7,6 +7,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace AFwalks.API_7.Controllers
 {
@@ -17,17 +18,24 @@ namespace AFwalks.API_7.Controllers
         private readonly AFwalks7DbContext dbContext;
         private readonly IRegionRepository regionRepository;
         private readonly IMapper mapper;
+        private readonly ILogger<RegionsController> logger;
 
-        public RegionsController(AFwalks7DbContext dbContext, IRegionRepository regionRepository, IMapper mapper)
+        public RegionsController(AFwalks7DbContext dbContext, IRegionRepository regionRepository, IMapper mapper, ILogger<RegionsController> logger)
         {
             this.dbContext = dbContext;
             this.regionRepository = regionRepository;
             this.mapper = mapper;
+            this.logger = logger;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllRegionAsync()
         {
+            logger.LogInformation("GetAllRegions Action Method was invoked");
+
+            logger.LogWarning("This is a warning log");
+
+            logger.LogError("This is a error log");
             //static data
 
             //var region = new List<Region>()
@@ -65,6 +73,8 @@ namespace AFwalks.API_7.Controllers
             //        RegionImageUrl = regionDOM.RegionImageUrl,
             //    });
             //}
+
+            logger.LogInformation($"Finished GetAllRegions request with data: {JsonSerializer.Serialize(regions)}");
 
             var regionsDTO = mapper.Map<List<RegionDto>>(regions);
 

@@ -28,6 +28,9 @@ namespace AFwalks.API_7.Controllers
             // Get data from database - domain model
             var walks = await walkRepository.GetAllAsync(filterOn, filterQuery, sortBy, isAscending ?? true, pageNumber, pageSize);
 
+            // Create an exception
+           // throw new Exception("This is a new exception");
+
             // Map domain model to Dtos
             var walksDTO = mapper.Map<List<WalkDto>>(walks);
 

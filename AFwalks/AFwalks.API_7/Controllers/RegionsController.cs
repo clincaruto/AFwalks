@@ -31,55 +31,73 @@ namespace AFwalks.API_7.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllRegionAsync()
         {
-            logger.LogInformation("GetAllRegions Action Method was invoked");
+            try
+            {
+               // throw new Exception("This is a custom exception");
+                // using serilog
+                //logger.LogInformation("GetAllRegions Action Method was invoked");
 
-            logger.LogWarning("This is a warning log");
+                //logger.LogWarning("This is a warning log");
 
-            logger.LogError("This is a error log");
-            //static data
+                //logger.LogError("This is a error log");
 
-            //var region = new List<Region>()
-            //{
-            //    new Region
-            //    {
-            //        Id = Guid.NewGuid(),
-            //        Code = "NGA",
-            //        Name= "Chuks Region",
-            //        RegionImageUrl="https://wallpapercave.com/w/d8zqgVd"
-            //    },
-            //    new Region
-            //    {
-            //        Id = Guid.NewGuid(),
-            //        Code = "CND",
-            //        Name = "Sagemode",
-            //        RegionImageUrl = "https://wallpapercave.com/w/d8zqgVd"
-            //    }
-            //};
 
-            // Get Data from Database - Domain models
-          //  var regions = await dbContext.Regions.ToListAsync();
-            var regions = await regionRepository.GetAllAsync();
+                //static data
 
-            // Map domain models to DTOs
+                //var region = new List<Region>()
+                //{
+                //    new Region
+                //    {
+                //        Id = Guid.NewGuid(),
+                //        Code = "NGA",
+                //        Name= "Chuks Region",
+                //        RegionImageUrl="https://wallpapercave.com/w/d8zqgVd"
+                //    },
+                //    new Region
+                //    {
+                //        Id = Guid.NewGuid(),
+                //        Code = "CND",
+                //        Name = "Sagemode",
+                //        RegionImageUrl = "https://wallpapercave.com/w/d8zqgVd"
+                //    }
+                //};
 
-            //var regionsDTO = new List<RegionDto>();
-            //foreach (var regionDOM in regions)
-            //{
-            //    regionsDTO.Add(new RegionDto()
-            //    {
-            //        Id = regionDOM.Id,
-            //        Name = regionDOM.Name,
-            //        Code = regionDOM.Code,
-            //        RegionImageUrl = regionDOM.RegionImageUrl,
-            //    });
-            //}
+                // Get Data from Database - Domain models
+                //  var regions = await dbContext.Regions.ToListAsync();
+                var regions = await regionRepository.GetAllAsync();
 
-            logger.LogInformation($"Finished GetAllRegions request with data: {JsonSerializer.Serialize(regions)}");
+                // Map domain models to DTOs
 
-            var regionsDTO = mapper.Map<List<RegionDto>>(regions);
+                //var regionsDTO1 = new List<RegionDto>();
+                //foreach (var regionDOM in regions)
+                //{
+                //    regionsDTO1.Add(new RegionDto()
+                //    {
+                //        Id = regionDOM.Id,
+                //        Name = regionDOM.Name,
+                //        Code = regionDOM.Code,
+                //        RegionImageUrl = regionDOM.RegionImageUrl,
+                //    });
+                //}
 
-            //Return DTOs
-            return Ok(regionsDTO);
+                //if (regionsDTO1.)
+                //{
+
+                //}
+
+                logger.LogInformation($"Finished GetAllRegions request with data: {JsonSerializer.Serialize(regions)}");
+
+                var regionsDTO = mapper.Map<List<RegionDto>>(regions);
+
+                //Return DTOs
+                return Ok(regionsDTO);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+                throw;
+            }
+           
         }
 
         [HttpGet]

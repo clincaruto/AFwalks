@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AFwalks.API", "AFwalks.API\AFwalks.API.csproj", "{B0D1C93A-3A7E-485E-90CD-9A9E92A2C12C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFwalks.API_7", "AFwalks.API_7\AFwalks.API_7.csproj", "{2E265CFC-10A1-46FA-99B7-0EC4032848AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AFwalks.API_7", "AFwalks.API_7\AFwalks.API_7.csproj", "{2E265CFC-10A1-46FA-99B7-0EC4032848AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFwalks.Web", "AFwalks.Web\AFwalks.Web.csproj", "{4BF415C2-1054-428F-B809-416BC5D33074}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2E265CFC-10A1-46FA-99B7-0EC4032848AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E265CFC-10A1-46FA-99B7-0EC4032848AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E265CFC-10A1-46FA-99B7-0EC4032848AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BF415C2-1054-428F-B809-416BC5D33074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BF415C2-1054-428F-B809-416BC5D33074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BF415C2-1054-428F-B809-416BC5D33074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BF415C2-1054-428F-B809-416BC5D33074}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

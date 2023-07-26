@@ -1,5 +1,6 @@
 using AFwalks.API_7.Configuration.MappingsProfile;
 using AFwalks.API_7.Data;
+using AFwalks.API_7.Middlewares;
 using AFwalks.API_7.Respositories.IRepository;
 using AFwalks.API_7.Respositories.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var logger = new LoggerConfiguration()
     .WriteTo.Console()
+    .WriteTo.File("Logs/AFwalksAPI_logs.txt", rollingInterval: RollingInterval.Minute)
     .MinimumLevel.Warning()
     .CreateLogger();
 
@@ -45,6 +47,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 
